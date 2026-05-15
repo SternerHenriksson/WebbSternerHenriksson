@@ -1,67 +1,47 @@
-import { Briefcase, Scale, TrendingUp, UserPlus, Building2, GraduationCap } from "lucide-react"
+const tjanster = [
+  {
+    num: "01",
+    title: "Rekrytering",
+    desc: "Vi hittar rätt kompetens till rätt roll — från specialister till ledande befattningar.",
+  },
+  {
+    num: "02",
+    title: "Ledarskap & utveckling",
+    desc: "Coaching, ledarprogram och stöd för chefer som vill utvecklas i sin roll.",
+  },
+  {
+    num: "03",
+    title: "Arbetsrätt & HR-stöd",
+    desc: "Skräddarsytt stöd i förändringsarbete, kompetensförsörjning och dagligt HR-arbete.",
+  },
+]
 
 export function Services() {
-  const services = [
-    {
-      icon: UserPlus,
-      title: "Rekrytering",
-      description: "Vi hjälper er att hitta rätt kompetens genom strukturerade rekryteringsprocesser.",
-    },
-    {
-      icon: Scale,
-      title: "Arbetsrätt",
-      description: "Juridisk expertis inom arbetsrätt för trygghet i alla personalfrågor.",
-    },
-    {
-      icon: GraduationCap,
-      title: "Ledarskap",
-      description: "Utveckling av ledarskap på alla nivåer för starkare och mer effektiva team.",
-    },
-    {
-      icon: Building2,
-      title: "Organisationsutveckling",
-      description: "Strategisk utveckling av organisationen för ökad effektivitet och trivsel.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Kompetensförsörjning",
-      description: "Planering och säkring av rätt kompetens för framtida behov.",
-    },
-    {
-      icon: Briefcase,
-      title: "HR-stöd",
-      description: "Dagligt operativt HR-stöd som avlastar och stärker er verksamhet.",
-    },
-  ]
-
   return (
-    <section id="tjanster" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-6">
-            Våra tjänster
+    <section className="sh-section" id="tjanster" style={{ background: "var(--bone)" }}>
+      <div className="sh-section-inner">
+        <div className="sh-section-head">
+          <p className="sh-section-eye">
+            <span className="num">01</span>Tjänster
+          </p>
+          <h2 className="sh-section-title">
+            HR som stärker både människor och affär.
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Oavsett om ni behöver stöd i förändringsarbete, kompetensförsörjning eller dagligt HR-arbete finns vi som en trygg och engagerad partner.
+          <p className="sh-section-lede">
+            Strategiskt och operativt HR-stöd — på era villkor, i ert tempo.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group p-6 bg-card rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all"
-            >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+        <div className="sh-practices">
+          {tjanster.map((t) => (
+            <article key={t.num} className="sh-practice">
+              <span className="sh-practice-num">{t.num}</span>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+              <a className="sh-practice-link" href="#kontakt">
+                Kontakta oss<span style={{ marginLeft: 6 }}>&#8594;</span>
+              </a>
+            </article>
           ))}
         </div>
       </div>

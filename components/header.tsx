@@ -1,84 +1,118 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const navItems = [
-    { href: "#start", label: "Start" },
-    { href: "#om-oss", label: "Om oss" },
+    { label: "Hem", href: "#top" },
+    { label: "Tjänster", href: "#tjanster" },
+    { label: "Om oss", href: "#om-oss" },
   ]
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="text-primary-foreground font-semibold text-lg tracking-tight">
-            Sterner & Henriksson
-          </Link>
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    setMenuOpen(false)
+    const id = href.replace("#", "")
+    if (id === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+  return (
+    <>
+      <header className="sh-header">
+        <a
+          className="sh-brand"
+          href="#top"
+          onClick={(e) => scrollTo(e, "#top")}
+        >
+          Sterner<span className="amp">&amp;</span>Henriksson
+        </a>
+
+        <div className="sh-right">
+          <nav className="sh-nav">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
+              <a
+                key={item.label}
                 href={item.href}
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm font-medium transition-colors"
+                onClick={(e) => scrollTo(e, item.href)}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <Button
-              asChild
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary"
-            >
-              <Link href="#kontakt">Kontakta oss</Link>
-            </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-primary-foreground p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Stäng meny" : "Öppna meny"}
+          <a
+            className="sh-contact-btn"
+            href="#kontakt"
+            onClick={(e) => scrollTo(e, "#kontakt")}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="dot" />
+            Kontakt
+          </a>
+
+          <button
+            className="sh-menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Stäng meny" : "Öppna meny"}
+            style={{
+              display: "none",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "8px",
+              color: "var(--ink)",
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              {menuOpen ? (
+                <>
+                  <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
           </button>
         </div>
+      </header>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-primary-foreground/20">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-primary-foreground/80 hover:text-primary-foreground text-sm font-medium transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Button
-                asChild
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary w-fit"
-              >
-                <Link href="#kontakt" onClick={() => setIsMenuOpen(false)}>
-                  Kontakta oss
-                </Link>
-              </Button>
-            </div>
-          </nav>
-        )}
-      </div>
-    </header>
+      {menuOpen && (
+        <nav className="sh-mobile-menu">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={(e) => scrollTo(e, item.href)}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="#kontakt"
+            onClick={(e) => scrollTo(e, "#kontakt")}
+            style={{ color: "var(--brass-deep)" }}
+          >
+            Kontakt
+          </a>
+        </nav>
+      )}
+
+      <style>{`
+        @media (max-width: 799px) {
+          .sh-menu-toggle { display: block !important; }
+          .sh-contact-btn { display: none !important; }
+        }
+      `}</style>
+    </>
   )
 }

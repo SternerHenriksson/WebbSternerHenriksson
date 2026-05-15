@@ -1,76 +1,76 @@
-import Link from "next/link"
-import { Linkedin } from "lucide-react"
-
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Company Info */}
+    <footer className="sh-footer">
+      <div className="sh-footer-inner">
+        <div className="sh-footer-grid" style={{ paddingBottom: 48 }}>
           <div>
-            <h3 className="font-semibold text-lg mb-4">Sterner & Henriksson</h3>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              HR-konsulter som hjälper företag att skapa hållbara, framgångsrika arbetsplatser.
+            <p className="sh-footer-wordmark">
+              Sterner<em>&amp;</em>Henriksson
             </p>
+            <a
+              className="sh-btn sh-btn-secondary"
+              href="mailto:hej@sternerhenriksson.se"
+              style={{ fontSize: 13, padding: "11px 20px" }}
+            >
+              hej@sternerhenriksson.se
+            </a>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Snabblänkar</h4>
-            <nav className="flex flex-col gap-2">
-              <Link
-                href="#start"
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Start
-              </Link>
-              <Link
-                href="#om-oss"
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Om oss
-              </Link>
-              <Link
-                href="#tjanster"
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Tjänster
-              </Link>
-              <Link
-                href="#kontakt"
-                className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors"
-              >
-                Kontakt
-              </Link>
-            </nav>
+            <h4>Kontakt</h4>
+            <ul>
+              <li>
+                <a href="mailto:hej@sternerhenriksson.se">E-post</a>
+              </li>
+              <li>
+                <a href="tel:+46701234567">Telefon</a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Kontakt</h4>
-            <div className="space-y-2 text-sm text-primary-foreground/80">
-              <p>info@sternerhenriksson.se</p>
-              <p>+46 70 123 45 67</p>
-              <p>Stockholm, Sverige</p>
-            </div>
-            <div className="mt-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
+            <h4>Bolaget</h4>
+            <ul>
+              <li>
+                <a href="#tjanster">Tjänster</a>
+              </li>
+              <li>
+                <a href="#om-oss">Om oss</a>
+              </li>
+              <li>
+                <a href="#kontakt">Kontakt</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>&nbsp;</h4>
+            <ul>
+              <li style={{ color: "rgba(245, 242, 236, 0.45)", fontSize: 13, opacity: 1 }}>
+                Sterner &amp; Henriksson AB
+              </li>
+              <li style={{ color: "rgba(245, 242, 236, 0.45)", fontSize: 13, opacity: 1 }}>
+                Grundat 2026 · Stockholm
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-primary-foreground/20 text-center">
-          <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Sterner & Henriksson AB. Alla rättigheter förbehållna.
-          </p>
+        <div className="sh-footer-fine">
+          <span>© 2026 Sterner &amp; Henriksson AB</span>
+          <span style={{ display: "flex", gap: 20 }}>
+            <a href="#">Integritet</a>
+            <a href="#">Cookies</a>
+          </span>
         </div>
       </div>
     </footer>
