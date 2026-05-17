@@ -122,7 +122,7 @@ return (
                 <button type="submit" className="sh-btn sh-btn-ink">
                   Skicka<span className="arrow" style={{ marginLeft: 4 }}>&#8594;</span>
                 </button>
-                <small>Vi svarar inom två arbetsdagar.</small>
+                
               </div>
             </form>
           )}
