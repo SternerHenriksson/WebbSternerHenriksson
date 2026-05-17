@@ -51,7 +51,6 @@ export function Header() {
             href="#kontakt"
             onClick={(e) => scrollTo(e, "#kontakt")}
           >
-            <span className="dot" />
             Kontakt
           </a>
 
