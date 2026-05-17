@@ -3,9 +3,7 @@ export function About() {
     <section className="sh-about" id="om-oss">
       <div className="sh-about-inner">
         <div>
-          <p className="eye">
-            <span className="num">02</span>Om oss
-          </p>
+          <p className="eye">Om oss</p>
           <h2>
             Den strategiska — och{" "}
             <em>personliga</em> — partnern.
@@ -33,7 +31,7 @@ export function About() {
           <p>
             <strong>Vi är Sterner &amp; Henriksson AB.</strong>
           </p>
-          <p className="signoff">Välkommen!</p>
+          
         </div>
       </div>
     </section>

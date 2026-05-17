@@ -24,18 +24,11 @@ export function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm({ ...form, [key]: e.target.value })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSent(true)
-  }
-
-  return (
+return (
     <section className="sh-contactform" id="kontakt">
       <div className="sh-contactform-inner">
         <div>
-          <p className="eye">
-            <span className="num">03</span>Kontakt
-          </p>
+          <p className="eye">Kontakt</p>
           <h2>
             Hör av <em>er.</em>
           </h2>
@@ -72,7 +65,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form className="sh-form-grid" onSubmit={handleSubmit}>
+            <form className="sh-form-grid" onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
               <div>
                 <label htmlFor="namn">Namn</label>
                 <input

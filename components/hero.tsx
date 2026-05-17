@@ -3,14 +3,11 @@ export function Hero() {
     <section className="sh-hero" id="top">
       <img
         className="sh-hero-img"
-        src="/images/testBg.jpg"
+        src="/images/hero1.jpg"
         alt=""
         aria-hidden="true"
       />
       <div className="sh-hero-text">
-        <p className="sh-hero-eye">
-          <span className="num">EST. 2026</span>Sterner &amp; Henriksson
-        </p>
         <h1>
           Människor som växer.{" "}
           <em>Affärer som följer.</em>

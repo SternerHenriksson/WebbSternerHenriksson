@@ -21,9 +21,7 @@ export function Services() {
     <section className="sh-section" id="tjanster" style={{ background: "var(--bone)" }}>
       <div className="sh-section-inner">
         <div className="sh-section-head">
-          <p className="sh-section-eye">
-            <span className="num">01</span>Tjänster
-          </p>
+          <p className="sh-section-eye">Tjänster</p>
           <h2 className="sh-section-title">
             HR som stärker både människor och affär.
           </h2>
@@ -35,7 +33,6 @@ export function Services() {
         <div className="sh-practices">
           {tjanster.map((t) => (
             <article key={t.num} className="sh-practice">
-              <span className="sh-practice-num">{t.num}</span>
               <h3>{t.title}</h3>
               <p>{t.desc}</p>
               <a className="sh-practice-link" href="#kontakt">
