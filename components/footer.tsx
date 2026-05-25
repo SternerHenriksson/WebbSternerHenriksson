@@ -9,10 +9,10 @@ export function Footer() {
             </p>
             <a
               className="sh-btn sh-btn-secondary"
-              href="mailto:hej@sternerhenriksson.se"
+              href="mailto:webbsternerhenriksson@gmail.com"
               style={{ fontSize: 13, padding: "11px 20px" }}
             >
-              hej@sternerhenriksson.se
+              webbsternerhenriksson@gmail.com
             </a>
           </div>
 
@@ -20,7 +20,7 @@ export function Footer() {
             <h4>Kontakt</h4>
             <ul>
               <li>
-                <a href="mailto:hej@sternerhenriksson.se">E-post</a>
+                <a href="mailto:webbsternerhenriksson@gmail.com">E-post</a>
               </li>
               <li>
                 <a href="tel:+46701234567">Telefon</a>

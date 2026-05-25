@@ -12,6 +12,8 @@ type FormState = {
 
 export function Contact() {
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [form, setForm] = useState<FormState>({
     namn: "",
     email: "",
@@ -24,7 +26,32 @@ export function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm({ ...form, [key]: e.target.value })
 
-return (
+  const handleSubmit = async (e: { preventDefault(): void }) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.error ?? "Något gick fel. Försök igen.")
+      }
+
+      setSent(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Något gick fel. Försök igen.")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
     <section className="sh-contactform" id="kontakt">
       <div className="sh-contactform-inner">
         <div>
@@ -39,8 +66,8 @@ return (
           <div className="sh-contact-meta">
             <div>
               <span>E-post</span>
-              <a href="mailto:hej@sternerhenriksson.se">
-                hej@sternerhenriksson.se
+              <a href="mailto:webbsternerhenriksson@gmail.com">
+                webbsternerhenriksson@gmail.com
               </a>
             </div>
             <div>
@@ -60,12 +87,12 @@ return (
               <h3>Tack — vi hör av oss.</h3>
               <p>
                 Marie eller en av kollegorna skriver till{" "}
-                <strong>{form.email || "er"}</strong> inom två arbetsdagar.
+                <strong>{form.email}</strong> inom två arbetsdagar.
                 Tills dess, ha en fin dag.
               </p>
             </div>
           ) : (
-            <form className="sh-form-grid" onSubmit={(e) => { e.preventDefault(); setSent(true) }}>
+            <form className="sh-form-grid" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="namn">Namn</label>
                 <input
@@ -74,6 +101,7 @@ return (
                   onChange={set("namn")}
                   placeholder="För- och efternamn"
                   required
+                  disabled={loading}
                 />
               </div>
               <div>
@@ -85,6 +113,7 @@ return (
                   onChange={set("email")}
                   placeholder="ni@foretag.se"
                   required
+                  disabled={loading}
                 />
               </div>
               <div className="field-full">
@@ -94,6 +123,7 @@ return (
                   value={form.foretag}
                   onChange={set("foretag")}
                   placeholder="Var ni skriver ifrån"
+                  disabled={loading}
                 />
               </div>
               <div className="field-full">
@@ -102,6 +132,7 @@ return (
                   id="omrade"
                   value={form.omrade}
                   onChange={set("omrade")}
+                  disabled={loading}
                 >
                   <option>Rekrytering</option>
                   <option>Ledarskap &amp; utveckling</option>
@@ -116,13 +147,23 @@ return (
                   value={form.meddelande}
                   onChange={set("meddelande")}
                   placeholder="En mening räcker — en rekrytering, en organisationsförändring, en arbetsrättsfråga."
+                  disabled={loading}
                 />
               </div>
+              {error && (
+                <div className="field-full" style={{ color: "var(--danger)", fontFamily: "var(--font-sans)", fontSize: 14 }}>
+                  {error}
+                </div>
+              )}
               <div className="field-full submit-row">
-                <button type="submit" className="sh-btn sh-btn-ink">
-                  Skicka<span className="arrow" style={{ marginLeft: 4 }}>&#8594;</span>
+                <button
+                  type="submit"
+                  className="sh-btn sh-btn-ink"
+                  disabled={loading}
+                  style={{ opacity: loading ? 0.6 : 1 }}
+                >
+                  {loading ? "Skickar…" : <>Skicka<span className="arrow" style={{ marginLeft: 4 }}>&#8594;</span></>}
                 </button>
-                
               </div>
             </form>
           )}

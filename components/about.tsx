@@ -12,10 +12,11 @@ export function About() {
         <div>
           <p>
             Vi är ett konsultbolag grundat <strong>2026</strong> av{" "}
-            <strong>Marie Sterner Henriksson</strong>. Målet med bolaget är att
-            vara den strategiska och framförallt den personliga partnern till er.
-            Under många år har vi varit uthyrda som underkonsulter till stora
-            börsnoterade företag. Vi arbetar med både korta och långa uppdrag.
+            <strong>Marie Sterner Henriksson</strong>. Målet med bolaget är att 
+            vara det självklara och personliga valet, 
+            vare sig det gäller behov under kortare eller längre tid.
+           Vi har under våra längre uppdrag, som sträckt sig över flera år, 
+           varit uthyrda som underkonsulter till stora välkända börsnoterade bolag.
           </p>
           <p>
             Drivkraften bakom att bygga Sterner &amp; Henriksson har varit att
