@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -29,8 +30,16 @@ export function Header() {
           className="sh-brand"
           href="#top"
           onClick={(e) => scrollTo(e, "#top")}
+          style={{ lineHeight: 0 }}
         >
-          Sterner<span className="amp">&amp;</span>Henriksson
+          <Image
+            src="/images/logotest.png"
+            alt="Sterner & Henriksson"
+            height={48}
+            width={240}
+            style={{ objectFit: "contain", objectPosition: "left" }}
+            priority
+          />
         </a>
 
         <div className="sh-right">
@@ -106,12 +115,6 @@ export function Header() {
         </nav>
       )}
 
-      <style>{`
-        @media (max-width: 799px) {
-          .sh-menu-toggle { display: block !important; }
-          .sh-contact-btn { display: none !important; }
-        }
-      `}</style>
     </>
   )
 }

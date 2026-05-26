@@ -283,6 +283,11 @@ html, body {
 
 .sh-mobile-menu a:hover { color: var(--brass-deep); }
 
+@media (max-width: 799px) {
+  .sh-menu-toggle { display: block !important; }
+  .sh-contact-btn { display: none !important; }
+}
+
 /* =============================================================
    Hero
    ============================================================= */

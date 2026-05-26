@@ -1,16 +1,13 @@
 const tjanster = [
   {
-    num: "01",
     title: "Rekrytering",
     desc: "Vi hittar rätt kompetens till rätt roll — från specialister till ledande befattningar.",
   },
   {
-    num: "02",
     title: "Ledarskap & utveckling",
     desc: "Coaching, ledarprogram och stöd för chefer som vill utvecklas i sin roll.",
   },
   {
-    num: "03",
     title: "Arbetsrätt & HR-stöd",
     desc: "Skräddarsytt stöd i förändringsarbete, kompetensförsörjning och dagligt HR-arbete.",
   },
@@ -34,7 +31,7 @@ export function Services() {
 
         <div className="sh-practices" style={{ background: "rgba(245, 242, 236, 0.07)", borderColor: "rgba(245, 242, 236, 0.07)" }}>
           {tjanster.map((t) => (
-            <article key={t.num} className="sh-practice" style={{ background: "var(--navy)", borderColor: "rgba(245,242,236,0.08)" }}>
+            <article key={t.title} className="sh-practice" style={{ background: "var(--navy)", borderColor: "rgba(245,242,236,0.08)" }}>
               <h3 style={{ color: "var(--bone)" }}>{t.title}</h3>
               <p style={{ color: "rgba(245, 242, 236, 0.65)" }}>{t.desc}</p>
               <a className="sh-practice-link" href="#kontakt" style={{ color: "var(--bone)" }}>

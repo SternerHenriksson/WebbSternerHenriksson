@@ -66,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="sh-footer-fine">
-          <span>© 2026 Sterner &amp; Henriksson AB</span>
+          <span>© {new Date().getFullYear()} Sterner &amp; Henriksson AB</span>
           <span style={{ display: "flex", gap: 20 }}>
             <a href="#">Integritet</a>
             <a href="#">Cookies</a>
