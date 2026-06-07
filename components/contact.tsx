@@ -66,7 +66,7 @@ export function Contact() {
           <div className="sh-contact-meta">
             <div>
               <span>E-post</span>
-              <a href="mailto:webbsternerhenriksson@gmail.com"> //Byta till maries mail senare
+              <a href="mailto:webbsternerhenriksson@gmail.com"> 
                 marie@sternerhenriksson.se
               </a>
             </div>
