@@ -66,13 +66,13 @@ export function Contact() {
           <div className="sh-contact-meta">
             <div>
               <span>E-post</span>
-              <a href="mailto:webbsternerhenriksson@gmail.com">
-                webbsternerhenriksson@gmail.com
+              <a href="mailto:webbsternerhenriksson@gmail.com"> //Byta till maries mail senare
+                marie@sternerhenriksson.se
               </a>
             </div>
             <div>
               <span>Telefon</span>
-              <a href="tel:+46701234567">+46 70 123 45 67</a>
+              <a href="tel:+46701234567">+46 70 699 52 59</a>
             </div>
             <div>
               <span>Adress</span>

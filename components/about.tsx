@@ -11,7 +11,7 @@ export function About() {
         </div>
         <div>
           <p>
-            Vi är ett konsultbolag grundat <strong>2026</strong> av{" "}
+            Vi är ett konsultbolag grundat <strong>2014</strong> av{" "}
             <strong>Marie Sterner Henriksson</strong>. Målet med bolaget är att 
             vara det självklara och personliga valet, 
             vare sig det gäller behov under kortare eller längre tid.
